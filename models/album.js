@@ -8,6 +8,6 @@ var AlbumSchema = Schema({
     description: String,
     year:Number,
     image:String,
-    artist: {type: Schema.ObjectId}
+    artist: {type: Schema.ObjectId, ref: 'Artist'}
 });
 module.exports = monoose.model('Album', AlbumSchema);
