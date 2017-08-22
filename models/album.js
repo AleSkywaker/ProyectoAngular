@@ -10,4 +10,4 @@ var AlbumSchema = Schema({
     image:String,
     artist: {type: Schema.ObjectId, ref: 'Artist'}
 });
-module.exports = monoose.model('Album', AlbumSchema);
+module.exports = mongoose.model('Album', AlbumSchema);

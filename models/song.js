@@ -10,4 +10,4 @@ var SongSchema = Schema({
     file:String,
     album: {type: Schema.ObjectId, ref: 'Album'}
 });
-module.exports = monoose.model('Song', SongSchema);
+module.exports = mongoose.model('Song', SongSchema);
