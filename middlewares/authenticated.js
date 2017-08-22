@@ -16,7 +16,7 @@ exports.ensureAuth = function(req, res, next){
             return res.status(401).send({mansaje: 'Tokken expirado'})
         }
     }catch(ex){
-        console.log(ex);
+        //console.log(ex);
         return res.status(404).send({mensaje: 'Tokken no válido'})
     }
     req.user = payload;
