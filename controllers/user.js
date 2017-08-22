@@ -2,6 +2,7 @@
 
 var bcrypt = require('bcrypt-nodejs');
 var User = require('../models/user');
+var jwt = require('../services/jwt')
 
 function pruebas(req, res){
     console.log(res);
@@ -68,6 +69,9 @@ function saveUser(req, res){
                             //devolver los datos del usario logeado
                             if(params.gethash){
                                 //devolver un token de jwt
+                                res.status(200).send({
+                                    token: jwt.createToken(user)
+                                })
                             }else{
                                 res.status(200).send({user});
                             }
