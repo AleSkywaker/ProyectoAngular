@@ -11,4 +11,4 @@ var UserSchema = Schema({
     role:String,
     image:String
 });
-module.exports = monoose.model('User', UserSchema);
+module.exports = mongoose.model('User', UserSchema);
