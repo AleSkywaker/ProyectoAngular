@@ -124,14 +124,12 @@ function saveUser(req, res){
                     if(!userUpdated){
                         res.status(404).send({mensaje: 'No se ha podido actualizar el usuario'})
                     } else{
-                        res.status(200).send({user: userUpdated})
+                        res.status(200).send({image: file_name, user: userUpdated})
                     }
                 });
             }else{
                 res.status(200).send({mensaje:"Extension del archivo no es válida"})
-            }
-
-            
+            }     
         }else{
             res.status(200).send({mensaje:"No has subido ninguna imagen......."})
         }
