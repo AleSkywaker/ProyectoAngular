@@ -3,6 +3,10 @@
   <h1>
     {{title}}!
   </h1>
+  <span>{{identity.name}} {{identity.surname}}</span>
+  <span class="btn btn-warning" (click)="logout()">
+    Cerra session
+  </span>
 </div>
 <div class="clearfix"></div>
 <div *ngIf="identity"  class="central col-lg-11">

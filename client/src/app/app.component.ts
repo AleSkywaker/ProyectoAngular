@@ -2,8 +2,6 @@ import { UserService } from './services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { User } from "./models/user";
 
-
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,6 +11,7 @@ import { User } from "./models/user";
 export class AppComponent implements OnInit {
   title = 'Proyecto de Musica';
   public user: User;
+  public user_register: User;
   public identity;
   public token;
   public errorMessage;
@@ -21,10 +20,15 @@ export class AppComponent implements OnInit {
     private _userService: UserService
   ) {
     this.user = new User("", "", "", "", "", 'ROLE_USER', "");
+    this.user_register = new User("", "", "", "", "", 'ROLE_USER', "");
   }
 
   ngOnInit() {
+      this.identity = this._userService.getIdentity();
+      this.token = this._userService.getToken();
 
+      console.log(this.identity);
+      console.log(this.token);
   }
   onSubmit() {
     console.log(this.user)
@@ -40,6 +44,7 @@ export class AppComponent implements OnInit {
           alert("El usuario no es indentificado");
         } else {
           //Crear elemento en localStorage para tener usuario en session
+          localStorage.setItem('identity', JSON.stringify(identity));
 
           //Conseguir el token para enviarselo a cada peticion http
           this._userService.signup(this.user, 'true').subscribe(
@@ -51,6 +56,8 @@ export class AppComponent implements OnInit {
                 alert("El token no se ha generado");
               } else {
                 //Crear elemento en localStorage para tener tener token disponible
+                localStorage.setItem('token', token);
+                
 
                 console.log(token);
                 console.log(identity);
@@ -65,9 +72,6 @@ export class AppComponent implements OnInit {
               }
             }
           )
-
-
-
         }
       },
       err => {
@@ -79,5 +83,12 @@ export class AppComponent implements OnInit {
         }
       }
     )
+  }
+  logout(){
+    localStorage.removeItem('identity');
+    localStorage.removeItem('token');
+    localStorage.clear();
+    this.identity = null;
+    this.token = null;
   }
 }
