@@ -22,11 +22,12 @@ export class AppComponent implements OnInit {
   ) {
     this.user = new User("", "", "", "", "", 'ROLE_USER', "");
     this.user_register = new User("", "", "", "", "", 'ROLE_USER', "");
+    this.identity = this._userService.getIdentity();
+    this.token = this._userService.getToken();
   }
 
   ngOnInit() {
-      this.identity = this._userService.getIdentity();
-      this.token = this._userService.getToken();
+      
 
       console.log(this.identity);
       console.log(this.token);
