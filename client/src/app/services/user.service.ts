@@ -27,14 +27,22 @@ export class UserService{
 
     }
     register(user_to_register){
-        let json = JSON.stringify(user_to_register);
-        let params = json;
-
+        let params = JSON.stringify(user_to_register);
         let headers = new Headers({'Content-Type': 'application/json'});
 
         return this._http.post(this.url+'register', params, {headers:headers})
             .map(res => res.json())
 
+    }
+    update_user(user_to_update){
+        let params = JSON.stringify(user_to_update);
+        let headers = new Headers({
+            'Authorization': this.getToken(),
+            'Content-Type': 'application/json'
+        });
+
+        return this._http.put(this.url+'update/'+user_to_update.id, params, {headers:headers})
+            .map(res => res.json())
     }
     getIdentity(){
         let identity = JSON.parse(localStorage.getItem('identity'));

@@ -142,7 +142,6 @@ function saveUser(req, res){
     }
 
 module.exports = {
-    pruebas,
     saveUser,
     loginUser,
     updateUser,
