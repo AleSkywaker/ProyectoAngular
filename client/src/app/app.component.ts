@@ -91,4 +91,8 @@ export class AppComponent implements OnInit {
     this.identity = null;
     this.token = null;
   }
+
+  onSubmitRegister(){
+    console.log(this.user_register)
+  }
 }
