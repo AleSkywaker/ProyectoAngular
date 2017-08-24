@@ -12,6 +12,12 @@
 <div class="col-lg-12" *ngIf="!identity">
   <div class="col-lg-6">
     <h1>Identificate</h1>
+    
+        <div  *ngIf="errorMessage" class="alert alert-info">
+            <strong>Error!</strong> {{errorMessage}}
+          </div>
+
+    
     <form #loginForm (ngSubmit)="onSubmit()" class="col-md-8">
       <p>
         <label>Correo electronico:</label>
@@ -28,7 +34,7 @@
     </form>
   </div>
 
-  <div class="clearfix"></div>
+  
   <div class="col-lg-6">
     <h1>Registrate</h1>
     <form class="col-md-8">

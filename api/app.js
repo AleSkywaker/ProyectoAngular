@@ -19,13 +19,19 @@ app.use(bodyParser.json());
 
 // Configurar cabeceras http
 app.use((req, res, next)=>{
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Authorization', 'X-API-KEY', 
-    'Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Access-Control-Allow-Request-Method');
-    res.header('Access-Control-Allow-Methods', 'GET', 'POST', 'DELETE', 'PUT', 'OPTIONS');
-    res.header('ALLOW', 'GET', 'POST', 'PUT', 'DELETE', 'OPTIONS');
+    
+    /* res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Credentials", "true");
+    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+    res.header("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers"); */
 
-    next();
+        res.header('Access-Control-Allow-Origin', '*');
+        res.header('Access-Control-Allow-Headers', "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method");
+        res.header('Access-Control-Allow-Methods', "GET, POST, OPTIONS, PUT, DELETE");
+        res.header('Allow', "GET, POST, OPTIONS, PUT, DELETE" );
+        
+        next();
+   
 })
 
 
