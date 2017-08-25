@@ -17,6 +17,9 @@ export class UserEditComponent implements OnInit{
 
     constructor(private _userService: UserService){
         this.titulo = "Actualizar mis datos";
+        this.user = new User("", "", "", "", "", 'ROLE_USER', "");
+
+        // LocalStorage
         this.identity = this._userService.getIdentity();
         this.token = this._userService.getToken();
     }

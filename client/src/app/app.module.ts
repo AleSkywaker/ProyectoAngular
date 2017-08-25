@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 
+import { routing, appRoutingPoviders } from './app.routing';
 import { AppComponent } from './app.component';
 import { UserEditComponent} from './components/user-edit.component';
 
@@ -15,9 +16,10 @@ import { UserEditComponent} from './components/user-edit.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    routing
   ],
-  providers: [],
+  providers: [appRoutingPoviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
