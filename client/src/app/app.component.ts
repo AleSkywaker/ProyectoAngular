@@ -79,7 +79,7 @@ export class AppComponent implements OnInit {
         var errorMessage = <any>err;
         if (errorMessage != null) {
           var body = JSON.parse(err._body);
-          this.errorMessage = body.mensaje;
+          this.alertRegister = body.mensaje;
           console.log(err)
         }
       }

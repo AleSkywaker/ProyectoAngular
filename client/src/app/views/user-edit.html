@@ -3,8 +3,8 @@
     <!-- FORMULARIO -->
 
         <h1>Registrate</h1>
-        <div *ngIf="alertUpdate" class="alert alert-info">
-          <strong>Muy bien!</strong> {{alertUpdate}}
+        <div *ngIf="alertMessage" class="alert alert-info">
+          <strong>Muy bien!</strong> {{alertMessage}}
         </div>
     
         <form #userUpdatForm="ngForm" (ngSubmit)="onSubmit()" class="col-md-8">
@@ -30,7 +30,8 @@
               </span>
           </p>
           
-          <input type="submit" value="Registrar" class="btn btn-primary">
+          
+          <input type="submit" value="Actualizar" class="btn btn-primary">
         </form>
       
 </div>
