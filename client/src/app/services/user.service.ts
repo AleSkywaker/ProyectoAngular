@@ -41,7 +41,7 @@ export class UserService{
             'Content-Type': 'application/json'
         });
 
-        return this._http.put(this.url+'update/'+user_to_update.id, params, {headers:headers})
+        return this._http.put(this.url+'update/'+user_to_update._id, params, {headers:headers})
             .map(res => res.json())
     }
     getIdentity(){

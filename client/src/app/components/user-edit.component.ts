@@ -26,12 +26,19 @@ export class UserEditComponent implements OnInit{
     ngOnInit(){
         console.log('user-edit component cargado')
     }
+
     onSubmit(){
         console.log(this.user)
 
         this._userService.updateUser(this.user).subscribe(
             response=>{
-
+                if(!response.user){
+                    this.alertMessage =  'El usuario no se ha actualizado';
+                }else{
+                    this.user = response.user;
+                    localStorage.setItem('identity', JSON.stringify(this.user));
+                    this.alertMessage =  'Datos actualizados correctamente';     
+                }
             },
             err=>{
                 var errorMessage = <any>err;

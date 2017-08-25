@@ -4,7 +4,7 @@
 
         <h1>Registrate</h1>
         <div *ngIf="alertMessage" class="alert alert-info">
-          <strong>Muy bien!</strong> {{alertMessage}}
+          <strong>{{alertMessage}}</strong> 
         </div>
     
         <form #userUpdatForm="ngForm" (ngSubmit)="onSubmit()" class="col-md-8">
