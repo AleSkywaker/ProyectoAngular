@@ -1,8 +1,6 @@
 <div class="col-lg-6" *ngIf="identity">
     <h1>{{titulo}}</h1>
     <!-- FORMULARIO -->
-
-        <h1>Registrate</h1>
         <div *ngIf="alertMessage" class="alert alert-info">
           <strong>{{alertMessage}}</strong> 
         </div>
@@ -29,9 +27,15 @@
                   El email es obligatorio
               </span>
           </p>
-          
-          
-          <input type="submit" value="Actualizar" class="btn btn-primary">
+          <div class="image_for_edit" *ngIf="user.image && user.image !=null">
+              <img src="" />
+          </div>
+          <p>
+              <label><strong>Sube tu foto:</strong></label>
+              <input type="file" placeholder="Subir imagen....."/>
+          </p>
+            
+          <input type="submit" value="Actualizar Datos" class="btn btn-primary">
         </form>
       
 </div>
