@@ -8,7 +8,7 @@ import { Artist } from './../models/artist';
 
 @Component({
     selector: 'artist-list',
-    templateUrl: '../view/artist-list.html',
+    templateUrl: './../views/artist-list.html',
     providers: [UserService]
 })
 export class ArtistListComponent implements OnInit{
