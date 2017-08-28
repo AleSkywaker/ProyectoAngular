@@ -1,4 +1,4 @@
-<div class="col-lg-10 col-lg-offset-1">
+<div class="col-lg-10 col-lg-offset-1" *ngIf="identity && identity.role == 'ROLE_ADMIN'">
 
     <h1 class="text-center">{{titulo}}</h1>
 
@@ -33,5 +33,10 @@
 
         <input type="submit" value="{{titulo}}" [disabled]="!formArtist.form.valid" class="btn btn-success" />
     </form>
+</div>
 
+
+<div class="col-lg-10 col-lg-offset-1" *ngIf="!identity || identity.role != 'ROLE_ADMIN'">
+<h1>Error</h1>
+<p>No tienes acceso a esta parte de la aplicación</p>
 </div>

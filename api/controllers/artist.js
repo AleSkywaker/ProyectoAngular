@@ -51,7 +51,7 @@ artist.save((err, artistStored)=>{
 
 function getArtists(req, res){
   
-  var itemsPerPage = 3;
+  var itemsPerPage = 4;
 
   /* if(req.params.page){
     var page = req.params.page;
