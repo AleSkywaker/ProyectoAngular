@@ -7,10 +7,10 @@
     </a>
   </h1>
   <nav id="navigation">
-    <a href="#">Buscar
+    <a [routerLink]="['/home']" [routerLinkActive]="['actived']">Buscar
     <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
     </a>
-    <a href="#">Artistas
+    <a [routerLink]="['/artists', 1]" [routerLinkActive]="['actived']">Artistas
     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
     </a>
     <a href="#">Albums
@@ -19,12 +19,14 @@
   </nav>
   <div class="clearfix"></div>
 
+
+
       <nav id="user_logged">
           <div class="user_image">
               <img id="image-logged" src="{{url + 'getimage/' + identity.image}}"/>
           </div>
         <span id="identity_name">Bienvenid@ {{identity.name}}</span>
-        <a [routerLink]="['/mis-datos']">Mis datos
+        <a [routerLink]="['/mis-datos']" [routerLinkActive]="['actived']">Mis datos
         <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
         </a>  
         <a (click)="logout()" class="btn-log-out">Salir
@@ -32,7 +34,8 @@
          </a>  
       </nav>
 </div>
-<div *ngIf="identity" class="central col-lg-10">
+<!-- Aqui se puede usuar *ngIF="identity" -->
+<div [class.hidden]="!identity" class="central col-lg-10">
 
   <router-outlet></router-outlet>
 
