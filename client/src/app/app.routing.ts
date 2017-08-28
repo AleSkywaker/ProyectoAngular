@@ -10,6 +10,9 @@ import { ArtistListComponent } from './components/artist-list.component';
 //import Home componente
 import { HomeComponent } from './components/home.component';
 
+//import Añadir Artista
+import { ArtistAddComponent } from './components/artist-add.component';
+
 const appRoutes: Routes = [
     /* {
         path:'',
@@ -19,7 +22,8 @@ const appRoutes: Routes = [
     {path: '', component: HomeComponent},
     {path: 'home', component: HomeComponent},
     {path: 'mis-datos', component: UserEditComponent},
-    {path: 'artists/:page', component: ArtistListComponent},
+    {path: 'crear-artista', component: ArtistAddComponent},
+    {path: 'artistas/:page', component: ArtistListComponent},
     {path: '**', component: HomeComponent},
 ];
 
