@@ -3,13 +3,14 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { GLOBAL } from './../services/global';
 import { UserService } from './../services/user.service';
+import { ArtistService } from './../services/artist.service';
 import { Artist } from './../models/artist';
 
 
 @Component({
     selector: 'artist-add',
     templateUrl: './../views/artist-add.html',
-    providers: [UserService]
+    providers: [UserService,ArtistService]
 })
 export class ArtistAddComponent implements OnInit{
     public titulo: string;
@@ -17,21 +18,48 @@ export class ArtistAddComponent implements OnInit{
     public identity;
     public token;
     public url: string;
+    public alertMessage: string;
     
     constructor(
         private _route: ActivatedRoute,
         private _router: Router,
-        private _useerService: UserService
+        private _userService: UserService,
+        private _artistService: ArtistService
     ){
         this.titulo = 'Crear nuevo artista';
-        this.identity = this._useerService.getIdentity();
-        this.token = this._useerService.getToken();
+        this.identity = this._userService.getIdentity();
+        this.token = this._userService.getToken();
         this.url = GLOBAL.url;
         this.artist = new Artist("", "", "");
     }
     ngOnInit(){
         console.log('Añadir Artista component.ts cargado');
-
+        
         //Conseguiremos el listado de artista y se lo asignaremos a la propiedad artist
+    }
+    onSubmit(){
+        console.log(this.artist);
+        this._artistService.addArtist(this.token, this.artist).subscribe(
+            response =>{
+                
+                if(!response.artist){
+                    this.alertMessage = 'error en el servidor';
+                }else{
+                    this.artist = response.artist;
+                    this.alertMessage = 'El artista se creado correctamente';
+                    //this._router.navigate(['/editar-artist'], response.artist._id)
+                }
+
+            }, 
+            err=>{
+                var errorMessage = <any>err;
+                if (errorMessage != null) {
+                  var body = JSON.parse(err._body);
+                  this.alertMessage = body.mensaje;
+                  console.log(err)
+                }
+
+            }
+        )      
     }
 }

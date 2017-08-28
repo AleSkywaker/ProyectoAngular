@@ -12,6 +12,7 @@ import { ArtistAddComponent } from './components/artist-add.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
