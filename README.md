@@ -7,8 +7,6 @@ npm install
 ```
 - Esto instalará todas las dependencias necesarias
 
-**Note:** Si `npm install` falla durante el proceso puede ser debido a  `gulp-imagemin`. En este caso elimine la dependencia `gulp-imagemin` desde `package.json`, vuelva a ejecutar `npm install` y luego instale `gulp-imagemin` separadamente con el commando: `npm install gulp-imagemin --save-dev`
-
 # Paquetes que se instalaran
 * Express
 * Body-Parser
@@ -28,3 +26,5 @@ Copyright (C) 2017 Alex Colombo<br>
 [www.github.com/](https://github.com/aleskywaker)<br>
 [@alex](http://www.twitter.com/)<br>
 Released under MIT license
+
+Note:** Este proyecto aún no esta terminado, una vez acabado, lo subiré a Digital Ocean, para que se pueda jugar con el.
