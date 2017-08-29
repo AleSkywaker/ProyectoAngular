@@ -11,8 +11,6 @@
     </ul>
 </div>
 
-
-
 <div class="clearfix"></div>
 
 <ul class="artist-list" *ngIf="identity">
@@ -21,11 +19,12 @@
             <img src="{{url + 'getimageartist/' + artist.image}}">
         </div>
         <div class="artist-name">
-            <a href="#">
+            <a [routerLink]="['/artista', artist._id]" >
                 {{artist.name}}
             </a>
             <div class="buttons" *ngIf="identity.role == 'ROLE_ADMIN'">
                 <a [routerLink]="['/editar-artista', artist._id]" class="btn btn-sm btn-warning">Editar</a>
+                
                 <a href="#" class="btn btn-sm btn-danger">Borrar</a>
             </div>
         </div>

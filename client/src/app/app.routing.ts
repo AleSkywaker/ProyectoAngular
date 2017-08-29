@@ -15,6 +15,9 @@ import { ArtistAddComponent } from './components/artist-add.component';
 
 //import Edicion Artista
 import { ArtistEditComponent } from './components/artist-edit.component';
+import { ArtistDetailComponent } from "./components/artist-detail.component";
+
+
 
 const appRoutes: Routes = [
     /* {
@@ -27,6 +30,7 @@ const appRoutes: Routes = [
     {path: 'mis-datos', component: UserEditComponent},
     {path: 'editar-artista/:id', component: ArtistEditComponent},
     {path: 'crear-artista', component: ArtistAddComponent},
+    {path: 'artista/:id', component: ArtistDetailComponent},
     {path: 'artistas/:page', component: ArtistListComponent},
     {path: '**', component: HomeComponent},
 ];
