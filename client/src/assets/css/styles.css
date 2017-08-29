@@ -7,6 +7,10 @@ html, body{
     border-bottom:4px solid cyan;
     padding-bottom: 4px;
 }
+.central{
+    height: 100%;
+    overflow-y: scroll;
+}
 .head-title{
     font-size: 15px;
     font-weight: bold;
@@ -102,4 +106,15 @@ cursor: pointer;
 }
 .artist-item .artist-name a{
     color:white;
+}
+#artist-head-card .image{
+    width: 145px;
+    height: 145px;
+    overflow: hidden;
+    float: left;
+    margin-right: 30px;
+}
+#artist-head-card .image img{
+    width: 130px;
+    height: 130px;
 }

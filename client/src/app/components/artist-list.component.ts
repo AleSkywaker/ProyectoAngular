@@ -73,4 +73,30 @@ export class ArtistListComponent implements OnInit{
             )
         })
     }
+    public confirmado;
+    onDeleteConfirm(id){
+        this.confirmado = id;
+    }
+    onCancelArtist(){
+        this.confirmado = null;
+    }
+    onDeleteArtist(id){
+        this._artistService.deleteArtists(this.token, id).subscribe(
+            response =>{
+                if(!response.artist){
+                    alert('error en el servidor')
+                }
+                    this.getArtist();
+                
+            },
+            err=>{
+                var errorMessage = <any>err;
+                if (errorMessage != null) {
+                  var body = JSON.parse(err._body);
+                  //this.alertMessage = body.mensaje;
+                  console.log(err)
+                }
+            }
+        )
+    }
 }

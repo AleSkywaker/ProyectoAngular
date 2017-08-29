@@ -58,7 +58,7 @@ export class ArtistService{
             'Authorization': token
         });
     let options = new RequestOptions({headers:headers});
-    return this._http.delete(this.url+'artists/'+id, options)
+    return this._http.delete(this.url+'artist/'+id, options)
     .map(res => res.json())
     }
 
