@@ -13,13 +13,12 @@
 
 
 
-
 <div class="clearfix"></div>
 
 <ul class="artist-list" *ngIf="identity">
     <li *ngFor="let artist of artists" class="col-lg-3 artist-item">
         <div class="artist-image">
-            <img src="{{url + 'getimageartist/' + artist.image}}" width="10%">
+            <img src="{{url + 'getimageartist/' + artist.image}}">
         </div>
         <div class="artist-name">
             <a href="#">

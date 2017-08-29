@@ -85,3 +85,12 @@ cursor: pointer;
     margin-left: 20px;
     margin-top: 20px;
 }
+.artist-item .artist-image {
+    height: 245px;
+    width: 100%;
+    overflow: hidden;
+}
+.artist-item .artist-image img{
+    min-width: 80%;
+    height: 100%
+}
