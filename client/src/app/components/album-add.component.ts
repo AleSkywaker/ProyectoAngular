@@ -38,7 +38,7 @@ export class AlbumAddComponent implements OnInit{
         
     }
     ngOnInit(){
-        console.log('Artista Edit component.ts cargado');
+        console.log('Album ADD component.ts cargado');
         
         //LLamar el metodo del api para sacar un artista en base a su id getArtist.      
     }

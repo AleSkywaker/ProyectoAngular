@@ -6,17 +6,15 @@ import { UserEditComponent } from './components/user-edit.component';
 
 //import artist
 import { ArtistListComponent } from './components/artist-list.component';
+import { ArtistAddComponent } from './components/artist-add.component';
+import { ArtistEditComponent } from './components/artist-edit.component';
+import { ArtistDetailComponent } from "./components/artist-detail.component";
 
 //import Home componente
 import { HomeComponent } from './components/home.component';
 
-//import Añadir Artista
-import { ArtistAddComponent } from './components/artist-add.component';
-
-//import Edicion Artista
-import { ArtistEditComponent } from './components/artist-edit.component';
-import { ArtistDetailComponent } from "./components/artist-detail.component";
-
+//import Albums
+import { AlbumAddComponent } from './components/album-add.component';
 
 
 const appRoutes: Routes = [
@@ -32,6 +30,7 @@ const appRoutes: Routes = [
     {path: 'crear-artista', component: ArtistAddComponent},
     {path: 'artista/:id', component: ArtistDetailComponent},
     {path: 'artistas/:page', component: ArtistListComponent},
+    {path: 'crear-album/:artist', component: AlbumAddComponent},
     {path: '**', component: HomeComponent},
 ];
 
