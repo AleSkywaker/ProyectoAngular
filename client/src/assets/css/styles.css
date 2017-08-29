@@ -118,3 +118,9 @@ cursor: pointer;
     width: 130px;
     height: 130px;
 }
+.seguro{
+    background-color: #222326;
+    margin-top: -30px;
+    position: absolute;
+    height: 40px;
+}

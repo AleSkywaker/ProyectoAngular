@@ -61,5 +61,4 @@ export class ArtistService{
     return this._http.delete(this.url+'artist/'+id, options)
     .map(res => res.json())
     }
-
 }

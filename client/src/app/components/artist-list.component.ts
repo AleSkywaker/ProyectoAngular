@@ -73,6 +73,8 @@ export class ArtistListComponent implements OnInit{
             )
         })
     }
+
+    
     public confirmado;
     onDeleteConfirm(id){
         this.confirmado = id;
