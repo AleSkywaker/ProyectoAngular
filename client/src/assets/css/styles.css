@@ -73,6 +73,7 @@ html, body{
 .btn-log-out{
 cursor: pointer;
 }
+.album_image_for_edit img,
 .artist_image_for_edit img{
  width: 15%;
 }
