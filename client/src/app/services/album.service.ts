@@ -21,6 +21,20 @@ export class AlbumService{
         return this._http.get(this.url+'album/'+id, options)
         .map(res=> res.json())
     }
+    getAlbums(token, artistId = null){
+        let headers = new Headers({
+            'Content-Type': 'application/json',
+            'Authorization': token
+        });
+        let options = new RequestOptions({headers:headers});
+        if(artistId == null){
+            return this._http.get(this.url+'albums/', options)
+            .map(res=> res.json())
+        }else{
+            return this._http.get(this.url+'albums/'+artistId, options)
+            .map(res=> res.json())
+        }
+    }
     addAlbum(token, album:Album){
     let params = JSON.stringify(album);
     let headers = new Headers({

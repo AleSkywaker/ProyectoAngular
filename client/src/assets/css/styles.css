@@ -77,13 +77,15 @@ cursor: pointer;
 .artist_image_for_edit img{
  width: 15%;
 }
+.album-list,
 .artist-list{
     margin:0px;
     padding:0px;
     margin-top: 30px;
     list-style: none;
 }
-.artist-item{
+.artist-item,
+.album-item{
     width:23%;
     margin: 0px;
     padding: 0px;
@@ -92,7 +94,8 @@ cursor: pointer;
     margin-left: 20px;
     margin-top: 20px;
 }
-.artist-item .artist-image {
+.artist-item .artist-image,
+.album-item .album-image {
     height: 245px;
     width: 100%;
     overflow: hidden;
@@ -102,7 +105,8 @@ cursor: pointer;
     min-width: 80%;
     height: 100%
 }
-.artist-item .artist-name{
+.artist-item .artist-name,
+.album-item .album-imageimg{
     color:white;
     padding: 10px;
     background: #222326;
