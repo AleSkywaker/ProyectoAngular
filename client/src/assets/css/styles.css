@@ -1,3 +1,4 @@
+ /* GLOBAL */
 html, body{
     margin: 0px;
     height: 90%;
@@ -11,6 +12,7 @@ html, body{
     height: 100%;
     overflow-y: scroll;
 }
+/* BARRA LATERAL */
 .head-title{
     font-size: 15px;
     font-weight: bold;
@@ -73,6 +75,7 @@ html, body{
 .btn-log-out{
 cursor: pointer;
 }
+/* ARTISTAS Y ALBUMS */
 .album_image_for_edit img,
 .artist_image_for_edit img{
  width: 15%;
@@ -101,10 +104,12 @@ cursor: pointer;
     overflow: hidden;
     background-color: black;
 }
-.artist-item .artist-image img,
-.album-item .album-image img{
+.artist-item .artist-image img{
     min-width: 80%;
     height: 100%
+}
+.album-item .album-image img{
+    width:100%
 }
 .artist-item .artist-name,
 .album-item .album-name{
@@ -124,6 +129,9 @@ cursor: pointer;
     float: left;
     margin-right: 30px;
 }
+.album-item{
+    height: 355px;
+}
 #artist-head-card .image img{
     width: 130px;
     height: 130px;
@@ -133,4 +141,11 @@ cursor: pointer;
     margin-top: -30px;
     position: absolute;
     height: 40px;
+}
+.seguro-album{
+    background-color: #222326;
+    margin-top: -42px;
+    position: absolute;
+    height: 40px;
+    margin-left: 10px;
 }

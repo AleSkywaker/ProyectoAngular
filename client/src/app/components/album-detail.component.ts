@@ -3,20 +3,16 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { GLOBAL } from './../services/global';
 import { UserService } from './../services/user.service';
-import { ArtistService } from './../services/artist.service';
-import { Artist } from './../models/artist';
-import { Album } from './../models/album';
 import { AlbumService } from './../services/album.service';
+import { Album } from './../models/album';
 
 
 @Component({
-    selector: 'artist-detail',
-    templateUrl: './../views/artist-detail.html',
-    providers: [UserService,ArtistService,AlbumService]
+    selector: 'album-detail',
+    templateUrl: './../views/album-detail.html',
+    providers: [UserService,AlbumService]
 })
-export class ArtistDetailComponent implements OnInit{
-    
-    public artist: Artist;
+export class AlbumDetailComponent implements OnInit{
     public albums: Album[];
     public identity;
     public token;
@@ -26,8 +22,7 @@ export class ArtistDetailComponent implements OnInit{
     constructor(
         private _route: ActivatedRoute,
         private _router: Router,
-        private _userService: UserService,   
-        private _artistService: ArtistService,
+        private _userService: UserService,     
         private _albumService: AlbumService
     ){
         this.identity = this._userService.getIdentity();
@@ -35,13 +30,13 @@ export class ArtistDetailComponent implements OnInit{
         this.url = GLOBAL.url;       
     }
     ngOnInit(){
-        console.log('Artista Edit component.ts cargado');
+        console.log('Album detalles component.ts cargado');
         
-        //LLamar el metodo del api para sacar un artista en base a su id getArtist.
+        //Sacar album de la base de datos
         this.getArtist();
     }
     getArtist(){
-        this._route.params.forEach((params: Params) => {
+        /* this._route.params.forEach((params: Params) => {
             let id = params['id'];
             
             this._artistService.getArtist(this.token, id).subscribe(
@@ -81,33 +76,7 @@ export class ArtistDetailComponent implements OnInit{
                     }
                 }
             )
-        });
+        }); */
     }   
-    public confirmado;
-    onDeleteConfirm(id){
-        this.confirmado = id;
-    }
-    onCancelAlbum(){
-        this.confirmado = null;
-    }
-    onDeleteAlbum(id){
-        this._albumService.deleteAlbum(this.token, id).subscribe(
-            response => {
-                if(!response.albums){
-                    this.alertMessage= 'Este album no se ha eliminado'
-                }
-                    this.getArtist();
-                
-
-            },
-            err=>{
-                var errorMessage = <any>err;
-                if (errorMessage != null) {
-                  var body = JSON.parse(err._body);
-                  this.alertMessage = body.mensaje;
-                  console.log(err)
-                }
-            }
-        )
-    }
+    
 }
