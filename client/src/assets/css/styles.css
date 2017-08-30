@@ -101,17 +101,20 @@ cursor: pointer;
     overflow: hidden;
     background-color: black;
 }
-.artist-item .artist-image img{
+.artist-item .artist-image img,
+.album-item .album-image img{
     min-width: 80%;
     height: 100%
 }
 .artist-item .artist-name,
-.album-item .album-imageimg{
+.album-item .album-name{
     color:white;
     padding: 10px;
     background: #222326;
 }
-.artist-item .artist-name a{
+.artist-item .artist-name a,
+.album-item .album-name a,
+{
     color:white;
 }
 #artist-head-card .image{
