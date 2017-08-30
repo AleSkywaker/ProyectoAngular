@@ -122,7 +122,10 @@ cursor: pointer;
 {
     color:white;
 }
-#artist-head-card .image{
+/* DETALLES DE ARTISTA Y ALBUM */
+#artist-head-card .image,
+#album-head-card .image
+{
     width: 145px;
     height: 145px;
     overflow: hidden;
@@ -132,7 +135,8 @@ cursor: pointer;
 .album-item{
     height: 355px;
 }
-#artist-head-card .image img{
+#artist-head-card .image img,
+#album-head-card .image img{
     width: 130px;
     height: 130px;
 }

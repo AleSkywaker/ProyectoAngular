@@ -6,14 +6,13 @@ import { UserService } from './../services/user.service';
 import { AlbumService } from './../services/album.service';
 import { Album } from './../models/album';
 
-
 @Component({
     selector: 'album-detail',
     templateUrl: './../views/album-detail.html',
     providers: [UserService,AlbumService]
 })
 export class AlbumDetailComponent implements OnInit{
-    public albums: Album[];
+    public album: Album;
     public identity;
     public token;
     public url: string;
@@ -37,16 +36,17 @@ export class AlbumDetailComponent implements OnInit{
     }
     getAlbum(){
         console.log("Este metodo funciona")
-        /* this._route.params.forEach((params: Params) => {
+        this._route.params.forEach((params: Params) => {
             let id = params['id'];
             
-            this._artistService.getArtist(this.token, id).subscribe(
+            this._albumService.getAlbum(this.token, id).subscribe(
                 response =>{
-                    if(!response.artist){
+                    if(!response.album){
                         this._router.navigate(['/'])
                     }else{
-                        this.artist = response.artist;
+                        this.album = response.album;
 
+                        /* 
                         //Sacar los albums del artista
                         this._albumService.getAlbums(this.token, response.artist._id).subscribe(
                             response=>{
@@ -66,6 +66,8 @@ export class AlbumDetailComponent implements OnInit{
                                 }
                             }
                         )
+                        */
+
                     }
                 },
                 err=>{
@@ -77,7 +79,7 @@ export class AlbumDetailComponent implements OnInit{
                     }
                 }
             )
-        }); */
+        }); 
     }   
     
 }
