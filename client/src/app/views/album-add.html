@@ -30,7 +30,7 @@
 
         <div *ngIf="is_edit">
                 <div class="album_image_for_edit" *ngIf="album.image && album.image != 'null'">
-                    <img src="{{url + 'uploadimagealbum/' + album.image}}" alt="" width="15%">
+                    <img src="{{url + 'getimagealbum/' + album.image}}" alt="" width="15%">
                 </div>
                 <label for="">Sube la imagen del album:</label>
                 <input type="file" placeholder="subir imagen" (change)="fileChangeEvent($event)"/>
