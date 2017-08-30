@@ -80,6 +80,5 @@ export class AlbumDetailComponent implements OnInit{
                 }
             )
         }); 
-    }   
-    
+    }     
 }
