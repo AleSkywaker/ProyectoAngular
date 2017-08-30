@@ -33,9 +33,10 @@ export class AlbumDetailComponent implements OnInit{
         console.log('Album detalles component.ts cargado');
         
         //Sacar album de la base de datos
-        this.getArtist();
+        this.getAlbum();
     }
-    getArtist(){
+    getAlbum(){
+        console.log("Este metodo funciona")
         /* this._route.params.forEach((params: Params) => {
             let id = params['id'];
             
