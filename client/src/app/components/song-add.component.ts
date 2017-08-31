@@ -3,12 +3,13 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { GLOBAL } from './../services/global';
 import { UserService } from './../services/user.service';
+import { SongService } from './../services/song.service';
 import { Song } from './../models/song';
 
 @Component({
     selector: 'song-add',
     templateUrl: './../views/song-add.html',
-    providers: [UserService]
+    providers: [UserService, SongService]
 })
 export class SongAddComponent implements OnInit{
     public titulo: string;
@@ -32,6 +33,15 @@ export class SongAddComponent implements OnInit{
     ngOnInit(){
         console.log('Song ADD component.ts cargado');        
     }
+
+   onSubmit(){
+    this._route.params.forEach((params:Params)=>{
+        let album_id = params['album'];
+        this.song.album = album_id;
+        console.log(this.song)    
+    })
+   }
+
     /* onSubmit(){
         this._route.params.forEach((params:Params)=>{
             let artist_id = params['artist'];
