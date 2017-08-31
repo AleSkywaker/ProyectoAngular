@@ -9,7 +9,7 @@ import { Song } from './../models/song';
 
 @Component({
     selector: 'song-edit',
-    templateUrl: './../views/song-edit.html',
+    templateUrl: './../views/song-add.html',
     providers: [UserService, SongService, UploadService]
 })
 export class SongEditComponent implements OnInit{
@@ -37,20 +37,44 @@ export class SongEditComponent implements OnInit{
     }
     ngOnInit(){
         console.log('Song EDIT component.ts cargado');  
-        //LLamar un metodo para sacar la cancion a editar      
+        //LLamar un metodo para sacar la cancion a editar   
+        this.getSong();   
+    }
+    getSong(){
+        this._route.params.forEach((params:Params)=>{
+            let id = params['id'];
+            console.log(id)
+            this._songService.getSong(this.token, id).subscribe(
+                response =>{
+                    if(!response.song){
+                        this._router.navigate(['/']);
+                        this.alertMessage = 'error en el servidor';
+                    }else{
+                        this.song = response.song;
+                    }
+                },
+                err=>{
+                    var errorMessage = <any>err;
+                    if (errorMessage != null) {
+                      var body = JSON.parse(err._body);
+                      //this.alertMessage = body.mensaje;
+                      console.log(err)
+                    }
+                }
+            )
+        })
     }
     onSubmit(){
         this._route.params.forEach((params:Params)=>{
         let id = params['id'];
-        
+        console.log(id)
 
+        console.log(this.song)
             this._songService.editSong(this.token, id, this.song).subscribe(
                 response =>{
-                    
                     if(!response.song){
-                        this.alertMessage = 'error en el servidor';
+                        this.alertMessage = 'error en el servidor otra vez';
                     }else{
-                        this.song = response.song;
                         this.alertMessage = 'La canción se ha actualizado correctamente';
 
                         if(!this.filesToUpload){
@@ -68,7 +92,6 @@ export class SongEditComponent implements OnInit{
                                 }
                             )
                         }
-                        //this._router.navigate(['/editar-album', response.album._id])
                     }
                 }, 
                 err=>{
