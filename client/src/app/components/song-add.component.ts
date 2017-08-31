@@ -5,7 +5,6 @@ import { GLOBAL } from './../services/global';
 import { UserService } from './../services/user.service';
 import { Song } from './../models/song';
 
-
 @Component({
     selector: 'song-add',
     templateUrl: './../views/song-add.html',

@@ -18,6 +18,10 @@ import { AlbumAddComponent } from './components/album-add.component';
 import { AlbumEditComponent } from "./components/album-edit.component";
 import { AlbumDetailComponent } from "./components/album-detail.component";
 
+//import Song
+import { SongAddComponent } from './components/song-add.component';
+
+
 
 const appRoutes: Routes = [
     /* {
@@ -31,6 +35,7 @@ const appRoutes: Routes = [
     {path: 'artista/:id', component: ArtistDetailComponent},
     {path: 'artistas/:page', component: ArtistListComponent},
     {path: 'crear-artista', component: ArtistAddComponent},
+    {path: 'crear-tema/:album', component: SongAddComponent},
     {path: 'editar-artista/:id', component: ArtistEditComponent},
     {path: 'crear-album/:artist', component: AlbumAddComponent},
     {path: 'album/:id', component: AlbumDetailComponent},
