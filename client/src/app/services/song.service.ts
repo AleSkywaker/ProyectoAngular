@@ -12,6 +12,15 @@ export class SongService{
     constructor(private _http:Http){
         this.url = GLOBAL.url;
     }
+    getSong(token, id:string){
+        let headers = new Headers({
+            'Content-Type': 'application/json',
+            'Authorization': token
+        });
+        let options = new RequestOptions({headers:headers});
+        return this._http.get(this.url+ 'song/'+id, options)
+        .map(res => res.json())
+    }
     
     addSong(token, song:Song){
     let params = JSON.stringify(song);
