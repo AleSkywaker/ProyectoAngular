@@ -76,9 +76,9 @@ function updateSong(req, res){
     var songId = req.params.id;
     var update = req.body;
 
-    Song.findOneAndUpdate(songId, update, (err, songUpdated)=>{
+    Song.findByIdAndUpdate(songId, update, (err, songUpdated)=>{
         if(err){
-            res.status(500).send({mensaje: "Error en el servidor de la API"})
+            res.status(500).send({mensaje: "Error en el servidor, mensaje enviado desde la API"})
         }else{
             if(!songUpdated){
                 res.status(404).send({mensaje: "No se ha actualizado la cancion"})
