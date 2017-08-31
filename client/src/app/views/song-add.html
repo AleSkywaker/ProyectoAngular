@@ -1,5 +1,10 @@
 <div class="col-lg-6" *ngIf="identity && identity.role == 'ROLE_ADMIN'">
     <h1>{{titulo}}</h1>
+
+    <div *ngIf="alertMessage" class="alert alert-info">
+            <strong>{{alertMessage}}</strong>
+            </div>
+
     <form action="" #formSong="ngForm" (ngSubmit)="onSubmit()">
                 <p>
                     <label for="">Titulo:</label>

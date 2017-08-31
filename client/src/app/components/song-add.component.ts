@@ -23,6 +23,7 @@ export class SongAddComponent implements OnInit{
         private _route: ActivatedRoute,
         private _router: Router,
         private _userService: UserService,
+        private _songService: SongService
     ){
         this.titulo = 'Crear nueva cancion';
         this.identity = this._userService.getIdentity();
@@ -34,28 +35,21 @@ export class SongAddComponent implements OnInit{
         console.log('Song ADD component.ts cargado');        
     }
 
-   onSubmit(){
-    this._route.params.forEach((params:Params)=>{
+    onSubmit(){
+        this._route.params.forEach((params:Params)=>{
         let album_id = params['album'];
         this.song.album = album_id;
-        console.log(this.song)    
-    })
-   }
 
-    /* onSubmit(){
-        this._route.params.forEach((params:Params)=>{
-            let artist_id = params['artist'];
-            this.album.artist = artist_id;
-
-            this._albumService.addAlbum(this.token, this.album).subscribe(
+            this._songService.addSong(this.token, this.song).subscribe(
                 response =>{
                     
-                    if(!response.album){
+                    if(!response.song){
                         this.alertMessage = 'error en el servidor';
                     }else{
-                        this.album = response.album;
-                        this.alertMessage = 'El album se ha creado correctamente';
-                        this._router.navigate(['/editar-album', response.album._id])
+                        this.song = response.song;
+                        this.alertMessage = 'La canción se ha creado correctamente';
+                        //deberá redirigir a la misma pagina para poder meter otra canción
+                        //this._router.navigate(['/editar-album', response.album._id])
                     }
                 }, 
                 err=>{
@@ -68,5 +62,5 @@ export class SongAddComponent implements OnInit{
                 }
             )
         })
-    } */
+    }
     }
