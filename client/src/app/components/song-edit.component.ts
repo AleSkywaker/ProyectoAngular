@@ -19,7 +19,7 @@ export class SongEditComponent implements OnInit{
     public token;
     public url: string;
     public alertMessage: string;
-    public is_edit: true;
+    public is_edit: boolean;
     
     constructor(
         private _route: ActivatedRoute,
@@ -38,7 +38,7 @@ export class SongEditComponent implements OnInit{
     ngOnInit(){
         console.log('Song EDIT component.ts cargado');  
         //LLamar un metodo para sacar la cancion a editar   
-        this.getSong();   
+        this.getSong();  
     }
     getSong(){
         this._route.params.forEach((params:Params)=>{
@@ -51,6 +51,7 @@ export class SongEditComponent implements OnInit{
                         this.alertMessage = 'error en el servidor';
                     }else{
                         this.song = response.song;
+                        console.log(this.song) 
                     }
                 },
                 err=>{
