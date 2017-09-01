@@ -5,14 +5,17 @@ import { GLOBAL } from './../services/global';
 import { UserService } from './../services/user.service';
 import { AlbumService } from './../services/album.service';
 import { Album } from './../models/album';
+import { SongService } from './../services/song.service';
+import { Song } from './../models/song';
 
 @Component({
     selector: 'album-detail',
     templateUrl: './../views/album-detail.html',
-    providers: [UserService,AlbumService]
+    providers: [UserService,AlbumService, SongService]
 })
 export class AlbumDetailComponent implements OnInit{
     public album: Album;
+    public songs: Song[];
     public identity;
     public token;
     public url: string;
@@ -22,7 +25,8 @@ export class AlbumDetailComponent implements OnInit{
         private _route: ActivatedRoute,
         private _router: Router,
         private _userService: UserService,     
-        private _albumService: AlbumService
+        private _albumService: AlbumService,
+        private _songService: SongService
     ){
         this.identity = this._userService.getIdentity();
         this.token = this._userService.getToken();
@@ -35,7 +39,7 @@ export class AlbumDetailComponent implements OnInit{
         this.getAlbum();
     }
     getAlbum(){
-        console.log("Este metodo funciona")
+        
         this._route.params.forEach((params: Params) => {
             let id = params['id'];
             
@@ -46,15 +50,15 @@ export class AlbumDetailComponent implements OnInit{
                     }else{
                         this.album = response.album;
 
-                        /* 
-                        //Sacar los albums del artista
-                        this._albumService.getAlbums(this.token, response.artist._id).subscribe(
+                        
+                        //Sacar las canciones
+                        this._songService.getSongs(this.token, response.album._id).subscribe(
                             response=>{
                                 
-                                if(!response.albums){
-                                    this.alertMessage= 'Este artista no tiene albums'
+                                if(!response.songs){
+                                    this.alertMessage= 'Este album no tiene canciones'
                                 }else{
-                                    this.albums = response.albums;
+                                    this.songs = response.songs;
                                 }
                             },
                             err=>{
@@ -66,8 +70,6 @@ export class AlbumDetailComponent implements OnInit{
                                 }
                             }
                         )
-                        */
-
                     }
                 },
                 err=>{
